@@ -19,14 +19,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+
+                <a class="navbar-brand" href="#"><img id="brand-image" src="http://i67.tinypic.com/1268ad5.png" style="margin-top:-10px; height: 40px; widows: 40px" border="0" alt="Image and video hosting by TinyPic"></a>
                
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-
-                	<a class="navbar-brand" href="#"><img id="brand-image" src="http://i67.tinypic.com/1268ad5.png" style="margin-top:-10px; height: 40px; widows: 40px" border="0" alt="Image and video hosting by TinyPic"></a> 
-
                     <li class="active">
                         <a href="#"><font color="#f49d9d">Write review</font></a>
                     </li>
@@ -39,38 +38,63 @@
                     <li class="active">
                         <a href="#"><font color="#f49d9d">Discover</font></a>
                     </li>
-
-                    <button class="btn btn-primary btn-sm " data-target="#login" data-toggle="modal" >Login</button>
-
-                    <div class="modal" id="login" tabindex="-1">
-                    	<div class="modal dialog">
-                    		<div class="modal-content">
-                    			<div class="modal-header">
-                    				<button class="close" data-dismiss="modal">&times;</button>
-                    				<h4 class="modal-title">Log-in</h4>
-                    </div>
-                    <div class="modal-body">
-                    	<form>
-                    		<div class="form-group">
-                    			<label for="inputUserName">Username</label>
-                    			<input class="form-control" placeholder="Login Username" type="text" id="inputUserName">
-                    		</div>
-                    		<div class="form-group">
-                    			<label for="inputPassword">Password</label>
-                    			<input class="form-control" placeholder="Login Password" type="password" id="inputPassword">
-                    		</div>
-                    	</form>
-                    </div>
-
-                    <div class="modal-footer">
-                    	<button class="btn btn-primary">Login</button>
-                    	<button class="btn btn-primary" data-dismiss="modal">Close</button>
-                    </div>
-                    </div>
-                    </div>
-                    </div>
-
                 </ul>
+
+                <div class="pull-right">
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control search-input" placeholder="Search">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default search-icon" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </span>
+                        </div>
+                    </form>
+
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active">
+                            <a href="#" data-target="#login" data-toggle="modal"><font color="#83A8D7">Log In</font></a>
+                        </li>
+                        <li class="active">
+                            <a href="#" data-target="#register" data-toggle="modal"><font color="#83A8D7">Register</font></a>
+                        </li>
+
+                        <!-- log-in modal -->
+
+                        <div class="modal fade" id="login" tabindex="-1" role="form">
+                            <div class="modal dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Log-in</h4>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <form class="form-horizontal" role="form">
+                                            <div class="form-group">
+                                                <label for="inputUserName">Username</label>
+                                                <input class="form-control" placeholder="Login Username" type="text" id="inputUserName">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="inputPassword">Password</label>
+                                                <input class="form-control" placeholder="Login Password" type="password" id="inputPassword">
+                                            </div>
+                                        </form>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">Login</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </ul>
+                </div>
+
+                    
+
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -80,11 +104,22 @@
 
 <!-- Footer -->
         <footer>
-            <div class="row">
-                <div class="col-lg-12">
-                    <p>Copyright &copy; K.rate Website 2017</p>
+            <div class="container fluid">
+                <div class="row text-center">
+                    <img id="brand-image" src="http://i67.tinypic.com/1268ad5.png"  border="0" style="margin-top:50px" alt="Image and video hosting by TinyPic"></a> 
+                    <h3 style="color: #83a7d7; position: relative; top: -15px"><b>K.RATE</b></h3>
+                    <p style="color: #a9a9a9; margin-top: -130px; margin-right:600px"><u>Products</u><br>Lorem Ipsum<br>Dolor sit amet<br>ad has posse<br>argumentum<br></p>
+                    <p style="color: #a9a9a9; margin-top: -110px; margin-right:300px"><u>Company</u><br>Lorem Ipsum<br>Dolor sit amet<br>ad has posse<br>argumentum<br></p>
+                    <p style="color: #a9a9a9; margin-top: -110px; margin-left:300px"><u>Contact Us</u><br>info@k-rate.com<br>#8 7th floor, One<br>Building BGC, Taguig<br>City, Philippines<br></p>
+                    <p style="color: #a9a9a9; margin-top: -110px; margin-left:600px"><u>Support</u><br>Lorem Ipsum<br>Dolor sit amet<br>ad has posse<br>argumentum<br></p>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12" style="color: #f49d9d">
+                        <center><p>Copyright &copy; K.RATE Website 2017</p></center>
+                    </div>
                 </div>
             </div>
         </footer>
+        <br>
 </body>
 </html>
