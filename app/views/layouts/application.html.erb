@@ -27,16 +27,24 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="#"><font color="#f49d9d">Write review</font></a>
+                        <a href="reviews/create">
+                            <font color="#f49d9d"><span class="fa fa-pencil-square-o"></span> Write review</font>
+                        </a>
                     </li>
                     <li class="active">
-                        <a href="#"><font color="#f49d9d">Following</font></a>
+                        <a href="#">
+                            <font color="#f49d9d"><span class="fa fa-check"></span> Following</font>
+                        </a>
                     </li>
                     <li class="active">
-                        <a href="#"><font color="#f49d9d">Community</font></a>
+                        <a href="#">
+                            <font color="#f49d9d"><span class="fa fa-users"></span> Community</font>
+                        </a>
                     </li>
                     <li class="active">
-                        <a href="#"><font color="#f49d9d">Discover</font></a>
+                        <a href="#">
+                            <font color="#f49d9d"><span class="fa fa-search"></span> Discover</font>
+                        </a>
                     </li>
                 </ul>
 
@@ -100,6 +108,10 @@
         </div>
         <!-- /.container -->
     </nav>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+
 <%= yield %>
 
 <!-- Footer -->
@@ -113,6 +125,7 @@
                     <p style="color: #a9a9a9; margin-top: -110px; margin-left:300px"><u>Contact Us</u><br>info@k-rate.com<br>#8 7th floor, One<br>Building BGC, Taguig<br>City, Philippines<br></p>
                     <p style="color: #a9a9a9; margin-top: -110px; margin-left:600px"><u>Support</u><br>Lorem Ipsum<br>Dolor sit amet<br>ad has posse<br>argumentum<br></p>
                 </div>
+                <br>
                 <div class="row">
                     <div class="col-lg-12" style="color: #f49d9d">
                         <center><p>Copyright &copy; K.RATE Website 2017</p></center>
