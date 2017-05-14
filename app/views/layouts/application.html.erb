@@ -71,12 +71,18 @@
 
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active" style="height: 35px; border-right: 1px solid #83A8D7">
-                            <a href="#" data-target="#login-modal" data-toggle="modal"><font color="#83A8D7">Log In</font></a>
-                        </li>
-                        <li class="active">
-                            <a href="#" data-target="#register" data-toggle="modal"><font color="#83A8D7">Register</font></a>
-                        </li>
+                        <% if !user_signed_in? %>
+                            <li class="active" style="height: 35px; border-right: 1px solid #83A8D7">
+                                <a href="/users/sign_in" data-target="#login-modal"><font color="#83A8D7">Log In</font></a>
+                            </li>
+                            <li class="active">
+                                <a href="/users/sign_up" data-target="#register" ><font color="#83A8D7">Register</font></a>
+                            </li>
+                        <% else %>
+                            <li class="active">
+                                <%= link_to "LOG OUT", destroy_user_session_path, :method => :delete %>
+                            </li>
+                        <% end %>
 
                         <!-- log-in modal -->
 
