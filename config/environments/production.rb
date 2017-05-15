@@ -81,4 +81,5 @@ Rails.application.configure do
 
   config.time_zone = 'Hong Kong'
   Tmdb::Api.key("401b1b1c2360ebe7559fdd9c1328359f")
+  config.assets.initialize_on_precompile = false
 end
