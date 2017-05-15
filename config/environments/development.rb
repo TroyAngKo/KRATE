@@ -39,6 +39,8 @@ Rails.application.configure do
   config.assets.raise_runtime_errors = true
 
   Tmdb::Api.key("401b1b1c2360ebe7559fdd9c1328359f")
+
+  
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

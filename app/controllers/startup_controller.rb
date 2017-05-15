@@ -1,6 +1,5 @@
 class StartupController < ApplicationController
   def index
-  	@movie = Tmdb::Movie.detail(550)
+  	@movies = Tmdb::Keyword.movies(10586).results
   end
-
 end

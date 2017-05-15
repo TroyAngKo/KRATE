@@ -27,10 +27,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav text-center">
                     <li class="active">
-                        <a href="reviews/create">
+                        <%= link_to(new_review_path) do %>
                             <i class="fa fa-pencil-square-o" style="font-size: 24px; color: #f49d9d"></i>
                             <p style="color: #f49d9d">Write Review</p>
-                        </a>
+                        <% end %>
                     </li>
                     <li class="active">
                         <a href="#">
@@ -186,7 +186,7 @@
     <%= yield %>
 
 <!-- Footer -->
-        <footer>
+        <footer style="margin-top:50px;">
             <div class="container fluid">
                 <div class="row text-center">
                     <div class="col-sm-1">
