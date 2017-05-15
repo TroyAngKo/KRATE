@@ -69,7 +69,7 @@
                         <!-- </div>
                     </form> -->
 
-
+    
                     <ul class="nav navbar-nav navbar-right">
                         <% if !user_signed_in? %>
                             <li class="active" style="height: 35px; border-right: 1px solid #83A8D7">
@@ -80,7 +80,7 @@
                             </li>
                         <% else %>
                             <li class="active">
-                                <%= link_to "LOG OUT", destroy_user_session_path, :method => :delete %>
+                                <%= link_to current_user.username, destroy_user_session_path, :method => :delete %>
                             </li>
                         <% end %>
 
@@ -192,7 +192,7 @@
                     <div class="col-sm-1">
                     </div>
                     <div class="col-sm-2">
-                        <p style="color: #a9a9a9"><u>About</u><br>What We Do<br>Meet The Team<br>Contact Us</p>
+                        <p style="color: #a9a9a9"><u><%= link_to 'About Us', startup_about_us_path %></u><br>What We Do<br>Meet The Team<br>Contact Us</p>
                     </div>
                     <div class="col-sm-2">
                         <p style="color: #a9a9a9"><u>Help</u><br>FAQs<br>Terms and Privacy</p>
