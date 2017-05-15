@@ -13,13 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require bootstrap-sprockets
 //= require_tree .
 
 
 $(document).ready(function() {
 	$('#myCarousel').carousel({
-	interval: 10000
+		interval: 10000
 	})
     
     $('#myCarousel').on('slid.bs.carousel', function() {
