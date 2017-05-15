@@ -1,22 +1,69 @@
-<div class="header" style="background-image:url(http://image.tmdb.org/t/p/w780<%= @show.backdrop_path %>);background-size:cover">
-	<div class="container">
-		<div class="row">
-			<h1><%= @show.title %></h1>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-6">
-				<h2 class="summary">
-					<%= @show.overview %>
-				</h2>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12 col-sm-6">
-				<h2 class="summary">
-					Tags: <%= @show.genres.map(&:name).join(', ') %>
-				</h2>
-			</div>
-		</div>
+<div class="container-fluid gradient-bg" style="padding-top:30px;">
+	<div class="col-md-12 text-center">
+	    <ul class="nav nav-pills center-pills" role="tablist">
+	        <li class="active"><a href="#about"  aria-controls="about" role="tab" data-toggle="tab">ABOUT</a></li>
+	        <li><a href="#cast" aria-controls="cast" role="tab" data-toggle="tab">CAST</a></li>
+	        <li><a href="#photos" aria-controls="photos" role="tab" data-toggle="tab">PHOTOS</a></li>
+	        <li><a href="#videos" aria-controls="videos" role="tab" data-toggle="tab">VIDEOS</a></li>
+	    </ul>
 	</div>
-	
+</div>
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="about">
+		<div class="header" style="background-image:url(http://image.tmdb.org/t/p/w780<%= @show.backdrop_path %>);background-size:cover">
+			<div class="container">
+				<div class="row">
+					<h2 style="text-transform:uppercase;"><%= @show.title %></h2>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<h3 class="summary">
+							<%= @show.overview %>
+						</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<h3 class="summary">
+							Tags: <%= @show.genres.map(&:name).join(', ') %>
+						</h3>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+    </div>
+    <div role="tabpanel" class="tab-pane gradient-bg" id="cast">
+    	<div class="container">
+	    	<div class="row">
+		    	<% @cast.each do |cast| %>
+		    		<% if !cast.profile_path.nil? %>
+					<div class="col-xs-4" style="margin-top:10px;margin-bottom:10px;">
+						<div class="col-xs-6">
+							<img src="http://image.tmdb.org/t/p/w185<%= cast.profile_path %>" alt="Image" class="img-responsive" style="height: 200px">
+						</div>
+						<div class="col-xs-6">
+							<h4 style="color:white; text-align:center;"><%=cast.character%></h4>
+							<h4 style="color:white; text-align:center;">(<%=cast.name%>)</h4>
+						</div>
+					</div>
+					<%end%>
+		    	<% end %>
+		    </div>
+	    </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="photos">
+    	
+    </div>
+    <div role="tabpanel" class="tab-pane" id="videos">
+    	
+    </div>
+</div>
+
+<div class="container-fluid gradient-bg" style="padding-top:5px; padding-bottom:5px;">
+	<div class="col-md-12 text-center">
+	    <ul class="nav nav-pills center-pills">
+	        <li><a href="#">Read reviews</a></li>
+	    </ul>
+	</div>
 </div>

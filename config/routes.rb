@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   resources :reviews
   resources :shows
   devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   get 'startup/index'
+
+  get 'startup/about_us'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

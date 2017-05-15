@@ -2,13 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+.center-pills {
+    display: flex;
+    justify-content: center;
+}
 .header {
 	color:white;
-	font-family: roboto;
+	font-family: 'ADAM';
 	font-weight:300;
 	.container {
 		padding-top:50px;
 		padding-bottom:200px;
 	}
+}
+
+.summary {
+	font-family: 'Univers';
 }

@@ -11,6 +11,7 @@ class ShowsController < ApplicationController
   # GET /shows/1.json
   def show
     @show = Tmdb::Movie.detail(params[:id])
+    @cast = Tmdb::Movie.cast(params[:id])
   end
 
   # GET /shows/new

@@ -19,6 +19,19 @@
 @import "bootstrap";
 @import "font-awesome";
 
+@font-face {
+  font-family: 'Univers';
+  src:font-url('UNIVERS.otf');
+  font-weight: normal;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: 'ADAM';
+  src:font-url('ADAM.otf');
+  font-weight: normal;
+  font-style: normal;
+} 
 
 html {
 	overflow-x: hidden;
@@ -206,4 +219,39 @@ body {
 
 .login-help{
   font-size: 12px;
+}
+
+.gradient-bg {
+  background-color: #7597c4;
+  background-repeat: repeat-y;
+
+  /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, left top, right top, from(#7597c4), to(#f69d9c));
+
+  /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(left, #f69d9c, #7597c4);
+
+  /* Firefox 3.6+ */
+  background: -moz-linear-gradient(left, #f69d9c, #7597c4);
+
+  /* IE 10 */
+  background: -ms-linear-gradient(left, #f69d9c, #7597c4);
+
+  /* Opera 11.10+ */
+  background: -o-linear-gradient(left, #f69d9c, #7597c4);
+}
+
+.nav-pills a {
+  color:white;
+}
+.nav-pills a:hover, .nav-pills .active a {
+  background-color: rgba(233, 233, 233, 0.5)!important;
+}
+
+footer a {
+  color: #ABA9A9;
+}
+
+footer a:hover {
+  background:none!important;
 }
