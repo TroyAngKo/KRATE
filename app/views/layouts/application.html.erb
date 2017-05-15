@@ -20,17 +20,17 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="#"><img id="brand-image" src="http://i67.tinypic.com/1268ad5.png" style="margin-top:-10px; height: 55px; widows: 40px" border="0" alt="Image and video hosting by TinyPic"></a>
+                <a class="navbar-brand" href="/"><img id="brand-image" src="http://i67.tinypic.com/1268ad5.png" style="margin-top:-10px; height: 55px; widows: 40px" border="0" alt="Image and video hosting by TinyPic"></a>
                
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav text-center">
                     <li class="active">
-                        <a href="reviews/create">
+                        <%= link_to(new_review_path) do %>
                             <i class="fa fa-pencil-square-o" style="font-size: 24px; color: #f49d9d"></i>
                             <p style="color: #f49d9d">Write Review</p>
-                        </a>
+                        <% end %>
                     </li>
                     <li class="active">
                         <a href="#">
@@ -73,10 +73,10 @@
                     <ul class="nav navbar-nav navbar-right">
                         <% if !user_signed_in? %>
                             <li class="active" style="height: 35px; border-right: 1px solid #83A8D7">
-                                <a href="/users/sign_in" data-target="#login-modal"><font color="#83A8D7">Log In</font></a>
+                                <a href="/users/sign_in" data-target="#login-modal" data-toggle="modal" ><font color="#83A8D7">Log In</font></a>
                             </li>
                             <li class="active">
-                                <a href="/users/sign_up" data-target="#register" ><font color="#83A8D7">Register</font></a>
+                                <a href="/users/sign_up" data-target="#register"><font color="#83A8D7">Register</font></a>
                             </li>
                         <% else %>
                             <li class="active">
@@ -84,26 +84,9 @@
                             </li>
                         <% end %>
 
-
-
                         <!-- log-in modal -->
 
-                        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="loginmodal-container">
-                                    <h1>Login to Your Account</h1><br>
-                                  <form>
-                                    <input type="text" name="user" placeholder="Username">
-                                    <input type="password" name="pass" placeholder="Password">
-                                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-                                  </form>
-                                    
-                                  <div class="login-help">
-                                    <a href="#">Register</a> - <a href="#">Forgot Password</a>
-                                  </div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <!-- <div class="modal fade" id="login" tabindex="-1" role="form">
                             <div class="modal dialog">
@@ -148,10 +131,62 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-<%= yield %>
+
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <h1>Login to Your Account</h1><br>
+              <!-- <form>
+                <input type="text" name="user" placeholder="Username">
+                <input type="password" name="pass" placeholder="Password">
+                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+              </form> -->
+                <%= form_for(:user, url: session_path(:user)) do |f| %>
+                    <%= f.label :email %><br />
+                    <%= f.email_field :email, autofocus: true %>
+
+                    <%= f.label :password %><br />
+                    <%= f.password_field :password, autocomplete: "off" %>
+                  <% if devise_mapping.rememberable? -%>
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %>
+                  <% end -%>
+
+                  <div class="actions">
+                    <%= f.submit "Log in", class: 'loginmodal-submit' %>
+                  </div>
+                <% end %>
+
+                <%= render "devise/shared/links" %>
+
+                
+              <div class="login-help">
+                <a href="#">Register</a> - <a href="#">Forgot Password</a>
+              </div>
+            </div>
+        </div>
+    </div>
+    <% flash.each do |name, msg| %>
+
+      <% if msg.class == Array %>
+        <% msg.each do |message| %>
+            <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <%= message %>
+            </div>
+        <% end %>
+      <% else %>
+            <div class="alert alert-warning alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <%= msg %>
+            </div>
+      <% end %>
+    <% end %>
+
+    <%= yield %>
 
 <!-- Footer -->
-        <footer>
+        <footer style="margin-top:50px;">
             <div class="container fluid">
                 <div class="row text-center">
                     <div class="col-sm-1">

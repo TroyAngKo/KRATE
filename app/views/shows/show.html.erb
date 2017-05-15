@@ -1,24 +1,22 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @show.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @show.description %>
-</p>
-
-<p>
-  <strong>Rating:</strong>
-  <%= @show.rating %>
-</p>
-
-<p>
-  <strong>Review:</strong>
-  <%= @show.review %>
-</p>
-
-<%= link_to 'Edit', edit_show_path(@show) %> |
-<%= link_to 'Back', shows_path %>
+<div class="header" style="background-image:url(http://image.tmdb.org/t/p/w780<%= @show.backdrop_path %>);background-size:cover">
+	<div class="container">
+		<div class="row">
+			<h1><%= @show.title %></h1>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<h2 class="summary">
+					<%= @show.overview %>
+				</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 col-sm-6">
+				<h2 class="summary">
+					Tags: <%= @show.genres.map(&:name).join(', ') %>
+				</h2>
+			</div>
+		</div>
+	</div>
+	
+</div>

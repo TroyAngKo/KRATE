@@ -76,4 +76,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.time_zone = 'Hong Kong'
+  Tmdb::Api.key("401b1b1c2360ebe7559fdd9c1328359f")
 end

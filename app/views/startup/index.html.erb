@@ -14,8 +14,11 @@
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner" role="listbox" style="height:500px">
+                        
+                        
+
                         <div class="item active">
-                            <img src="http://i64.tinypic.com/zwkh7q.jpg" border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>    
+                            <img src="http://image.tmdb.org/t/p/w780<%= @movies.first.backdrop_path %>"border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>    
                         </div>
 
                         <div class="item ">
@@ -25,6 +28,10 @@
                         <div class="item ">
                             <img src="https://www.dramafever.com/st/img/nowplay/4981_WeightliftingFairyKimBokJoo_Nowplay_Small.jpg" border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>
                         </div>    
+
+                        <div class="item">
+                                <img src="http://i64.tinypic.com/zwkh7q.jpg" border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>   
+                            </div>
                     </div>
 
                     <!-- Control or next and prev buttons -->
@@ -109,8 +116,7 @@
 
 
         <hr>
-
-        
+                
 
         <!-- Page Features -->
         <!-- <div class="row text-center">
@@ -142,6 +148,8 @@
             </div>
         
         </div> -->
+            
+
         <div class="row">
             <div class="col-sm-12">
 
@@ -150,45 +158,23 @@
                     <!-- Carousel items -->
                     <div class="carousel-inner" style="height:200px">
                         <div class="item active">
-                            <div class="row">
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
+                            <% @movies.each do |movie| %>
+                                <div class="col-sm-3">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w185<%= movie.backdrop_path %>" alt="Image" class="img-responsive" style="height: 200px">
+                                    <% end %>
                                 </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                            </div>
-                            <!--/row-->
+                            <% end %>
                         </div>
-                        <!--/item-->
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
+
+                        <div class="item ">
+                            <% @movies.each do |movie| %>
+                                <div class="col-sm-3">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w185<%= movie.backdrop_path %>" alt="Image" class="img-responsive" style="height: 200px">
+                                    <% end %>
                                 </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                            </div>
-                            <!--/row-->
-                        </div>
-                        <!--/item-->
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="https://www.dramafever.com/st/img/nowplay/4627_DescendantsoftheSun_Nowplay_Small.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                            </div>
-                            <!--/row-->
+                            <% end %>
                         </div>
                         <!--/item-->
                     </div>
@@ -218,45 +204,23 @@
                     <!-- Carousel items -->
                     <div class="carousel-inner" style="height:200px">
                         <div class="item active">
-                            <div class="row">
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
+                            <% @movies.each do |movie| %>
+                                <div class="col-sm-3">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w185<%= movie.backdrop_path %>" alt="Image" class="img-responsive" style="height: 200px">
+                                    <% end %>
                                 </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                            </div>
-                            <!--/row-->
+                            <% end %>
                         </div>
-                        <!--/item-->
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
+
+                        <div class="item ">
+                            <% @movies.each do |movie| %>
+                                <div class="col-sm-3">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w185<%= movie.backdrop_path %>" alt="Image" class="img-responsive" style="height: 200px">
+                                    <% end %>
                                 </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                            </div>
-                            <!--/row-->
-                        </div>
-                        <!--/item-->
-                        <div class="item">
-                            <div class="row">
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                                <div class="col-sm-3"><a href="#x"><img src="http://s2.dmcdn.net/bz6r1.jpg" alt="Image" class="img-responsive" style="height: 200px"></a>
-                                </div>
-                            </div>
-                            <!--/row-->
+                            <% end %>
                         </div>
                         <!--/item-->
                     </div>

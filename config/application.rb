@@ -8,6 +8,7 @@ Bundler.require(*Rails.groups)
 
 module Devproject
   class Application < Rails::Application
+    config.time_zone = 'Hong Kong'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -22,5 +23,6 @@ module Devproject
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    Tmdb::Api.key("401b1b1c2360ebe7559fdd9c1328359f")
   end
 end

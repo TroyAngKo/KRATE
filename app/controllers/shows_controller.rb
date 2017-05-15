@@ -10,6 +10,7 @@ class ShowsController < ApplicationController
   # GET /shows/1
   # GET /shows/1.json
   def show
+    @show = Tmdb::Movie.detail(params[:id])
   end
 
   # GET /shows/new
@@ -64,7 +65,7 @@ class ShowsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_show
-      @show = Show.find(params[:id])
+      @show = Tmdb::Movie.detail(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
