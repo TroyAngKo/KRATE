@@ -6,3 +6,25 @@
 
 
 </div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('.selectpicker').change(function(){
+			val = $('.selectpicker').val();
+			$.ajax({
+			    dataType: 'JSON',
+			    type: 'GET',
+			    url: '/startup/get_background',
+			    data: {movie_id: val},
+			    success: function(a) {
+			    	returned = "url(http://image.tmdb.org/t/p/w780"+a.movie_title+")  no-repeat";
+			    	$('#background-poster').css('background',returned);
+			    	$('#background-poster').css('background-size','cover');
+			    },
+			    error: function(a) {
+			    }
+		  	});
+		});
+	});
+</script>

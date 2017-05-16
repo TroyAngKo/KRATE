@@ -17,6 +17,8 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
     @movies = Tmdb::Keyword.movies(10586).results
+
+    @movies = @movies.sort_by &:title
   end
 
   # GET /reviews/1/edit

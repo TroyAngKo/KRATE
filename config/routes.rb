@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'startup/index'
 
   get 'startup/about_us'
+  get 'startup/get_background'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

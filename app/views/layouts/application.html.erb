@@ -115,7 +115,7 @@
                     <input type="password" name="pass" placeholder="Password">
                     <input type="submit" name="login" class="login loginmodal-submit" value="Login">
                   </form> -->
-                    <%= form_for(:user, url: session_path(:user)) do |f| %>
+                    <%= form_for(:user, url: registration_path(:user)) do |f| %>
                         <%= f.label :username %><br />
                         <%= f.text_field :username, autofocus: true %>
 
