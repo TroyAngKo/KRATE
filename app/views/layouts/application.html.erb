@@ -5,6 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+      <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 </head>
 <body>
 
@@ -20,7 +26,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="/"><img id="brand-image" src="http://i67.tinypic.com/1268ad5.png" style="margin-top:-10px; height: 55px; widows: 40px" border="0" alt="Image and video hosting by TinyPic"></a>
+                <a class="navbar-brand" href="/"><img id="brand-image" src="http://i67.tinypic.com/1268ad5.png" style="margin-top:-8px; height: 45px" border="0" alt="Image and video hosting by TinyPic"></a>
                
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,26 +34,26 @@
                 <ul class="nav navbar-nav text-center">
                     <li class="active">
                         <%= link_to(new_review_path) do %>
-                            <i class="fa fa-pencil-square-o" style="font-size: 24px; color: #f49d9d"></i>
-                            <p style="color: #f49d9d">Write Review</p>
+                            <i class="fa fa-pencil-square-o" style="font-size: 24px"></i>
+                            <p style="font-family: Adam">Write Review</p>
                         <% end %>
                     </li>
                     <li class="active">
                         <a href="#">
-                            <i class="fa fa-heart" style="font-size: 24px; color: #f49d9d"></i>
-                            <p style="color: #f49d9d">Following</p>
+                            <i class="fa fa-heart" style="font-size: 24px"></i>
+                            <p style="font-family: Adam">Following</p>
                         </a>
                     </li>
                     <li class="active">
                         <a href="#">
-                            <i class="fa fa-users" style="font-size: 24px; color: #f49d9d"></i>
-                            <p style="color: #f49d9d">Community</p>
+                            <i class="fa fa-users" style="font-size: 24px"></i>
+                            <p style="font-family: Adam">Community</p>
                         </a>
                     </li>
                     <li class="active">
                         <a href="#">
-                            <i class="fa fa-search" style="font-size: 24px; color: #f49d9d"></i>
-                            <p style="color: #f49d9d">Discover</p>
+                            <i class="fa fa-search" style="font-size: 24px"></i>
+                            <p style="font-family: Adam">Discover</p>
                         </a>
                     </li>
                 </ul>
@@ -73,13 +79,13 @@
                     <ul class="nav navbar-nav navbar-right">
                         <% if !user_signed_in? %>
                             <li class="active" style="height: 35px; border-right: 1px solid #83A8D7">
-                                <a href="/users/sign_in" data-target="#login-modal" data-toggle="modal" ><font color="#83A8D7">Log In</font></a>
+                                <a href="/users/sign_in" data-target="#login-modal" data-toggle="modal" id="navbarright">Log In</font></a>
                             </li>
                             <li class="active">
-                                <a href="/users/sign_up" data-target="#register"><font color="#83A8D7">Register</font></a>
+                                <a href="/users/sign_up" data-target="#register" id="navbarright">Register</font></a>
                             </li>
                         <% else %>
-                            <li class="active">
+                            <li class="active" id="navbarright">
                                 <%= link_to current_user.username, destroy_user_session_path, :method => :delete %>
                             </li>
                         <% end %>
@@ -184,6 +190,8 @@
     <% end %>
 
     <%= yield %>
+
+    <hr>
 
 <!-- Footer -->
         <footer style="margin-top:50px;">

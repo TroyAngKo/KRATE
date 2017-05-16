@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    @movies = Tmdb::Keyword.movies(10586).results
   end
 
   # GET /reviews/1/edit
