@@ -10,13 +10,12 @@
                         <li data-target="#my-slider" data-slide-to="0" class="active"></li>
                         <li data-target="#my-slider" data-slide-to="1"></li>
                         <li data-target="#my-slider" data-slide-to="2"></li>
+                        <li data-target="#my-slider" data-slide-to="3"></li>
                     </ol>
 
                     <!-- Wrapper for slides -->
+                    <div class="overlay">Trending</div>
                     <div class="carousel-inner" role="listbox" style="height:500px">
-                        
-                        
-
                         <div class="item active">
                             <img src="http://image.tmdb.org/t/p/w780<%= @movies.first.backdrop_path %>"border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>    
                         </div>
@@ -52,7 +51,7 @@
                 <table class="table table-bordered">
                     <thead>
                       <tr>
-                        <th style="background-color: #f49d9d; color: white"><center>DAEBAK</center></th>
+                        <th style="background-color: #f49d9d; color: white"><center><p class="tableheading">DAEBAK</p></center></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -61,7 +60,7 @@
                             <div class="col-sm-6 daebak">
                                 <center><img src="http://www.koreandrama.org/wp-content/uploads/2014/04/Doctor-Stranger-Poster1.jpg" alt="Image" class="img-responsive daebak-img" style="height: 100px"></a></center>
                             </div>
-                            <div class="col-sm-6"><center><br>
+                            <div class="col-sm-6 showtext"><center><br>
                                 Doctor Stranger<br>
                                 Rating<br>
                                 Read Reviews
@@ -74,7 +73,7 @@
                             <div class="col-sm-6 daebak">
                                 <center><img src="http://www.koreandrama.org/wp-content/uploads/2014/04/Doctor-Stranger-Poster1.jpg" alt="Image" class="img-responsive daebak-img" style="height: 100px"></a></center>
                             </div>
-                            <div class="col-sm-6"><center><br>
+                            <div class="col-sm-6 showtext"><center><br>
                                 Doctor Stranger<br>
                                 Rating<br>
                                 Read Reviews
@@ -87,7 +86,7 @@
                             <div class="col-sm-6 daebak">
                                 <center><img src="http://www.koreandrama.org/wp-content/uploads/2014/04/Doctor-Stranger-Poster1.jpg" alt="Image" class="img-responsive daebak-img" style="height: 100px"></a></center>
                             </div>
-                            <div class="col-sm-6"><center><br>
+                            <div class="col-sm-6 showtext"><center><br>
                                 Doctor Stranger<br>
                                 Rating<br>
                                 Read Reviews
@@ -100,7 +99,7 @@
                             <div class="col-sm-6 daebak">
                                 <center><img src="http://www.koreandrama.org/wp-content/uploads/2014/04/Doctor-Stranger-Poster1.jpg" alt="Image" class="img-responsive daebak-img" style="height: 100px"></a></center>
                             </div>
-                            <div class="col-sm-6"><center><br>
+                            <div class="col-sm-6 showtext"><center><br>
                                 Doctor Stranger<br>
                                 Rating<br>
                                 Read Reviews
@@ -156,6 +155,7 @@
                 <div id="myCarousel" class="carousel slide">
                     
                     <!-- Carousel items -->
+                    <div class="overlay">Featured</div>
                     <div class="carousel-inner" style="height:200px">
                         <div class="item active">
                             <% @movies.each do |movie| %>
@@ -202,6 +202,7 @@
                 <div id="myCarousel2" class="carousel slide">
                     
                     <!-- Carousel items -->
+                    <div class="overlay">New</div>
                     <div class="carousel-inner" style="height:200px">
                         <div class="item active">
                             <% @movies.each do |movie| %>
@@ -238,5 +239,3 @@
                 </div>
             </div>
         </div>
-
-        <hr>

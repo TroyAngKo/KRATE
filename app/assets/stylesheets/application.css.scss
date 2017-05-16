@@ -38,12 +38,34 @@ html {
 }
 
 body {
-	padding-top: 2%;
+	padding-top: 3%;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: Adam;
 	color: #f49d9d;
+}
+
+.tableheading {
+	font-family: Adam;
+	font-size: 25px;
+	padding-top: 5px;
+	margin-bottom: 0px;
+}
+
+.showtext {
+	font-family: Univers;
+}
+
+.footerhead {
+	font-family: Adam;
+	font-size: 20px;
+	margin-bottom: 10px;
+}
+
+.footertext {
+	font-family: Univers;
+	font-size: 14px;
 }
 
 .reviewtext {
@@ -64,6 +86,21 @@ h1, h2, h3, h4, h5, h6 {
 #review_recommend {
 	margin-left: 10px;
 }
+
+.overlay { 
+  color: white;
+  font-size: 25px;
+  font-family: Adam;
+  position:absolute;
+  z-index:12;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-top: 5px;
+  /*width: 200px;*/
+  background-color: #f49d9d;
+}
+
 
 .checkbox {
 	margin-left: 50px;
@@ -111,6 +148,7 @@ h1, h2, h3, h4, h5, h6 {
     background-color: transparent;
     color: #83A8D7;
 	font-family: Adam;
+	outline: none;
 
 }
 
@@ -192,35 +230,103 @@ h1, h2, h3, h4, h5, h6 {
 
 
 /****** LOGIN MODAL ******/
-.loginmodal-container {
-  padding: 30px;
-  max-width: 350px;
+
+/*register*/
+
+.loginmodal-container1 {
+  padding-top: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  /*max-width: 350px;*/
+  height: 575px;
   width: 100% !important;
-  background-color: #F7F7F7;
+  background-color: #83A8D7;
   margin: 0 auto;
-  border-radius: 2px;
+  border-radius: 0px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   overflow: hidden;
-  font-family: roboto;
+  font-family: Adam;
 }
 
-.loginmodal-container h1 {
+.loginmodal-container1 h1 {
   text-align: center;
   font-size: 1.8em;
-  font-family: roboto;
+  font-family: Adam;
+  color: white;
+  text-decoration: underline;
 }
 
-.loginmodal-container input[type=submit] {
-  width: 100%;
+.loginmodal-container1 input[type=submit] {
+  width: 50%;
   display: block;
   margin-bottom: 10px;
   position: relative;
 }
 
-.loginmodal-container {
+.loginmodal-container1 {
   input[type=text], input[type=password], input[type=email] {
-    height: 44px;
-    font-size: 16px;
+    height: 40px;
+    font-family: Univers;
+    font-size: 12px;
+    width: 100%;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    /* border-radius: 2px; */
+    padding: 0 8px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+  }
+
+  input[type=text]:hover, input[type=password]:hover, input[type=email]:hover {
+    border: 1px solid #b9b9b9;
+    border-top: 1px solid #a0a0a0;
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  }
+}
+
+/*login*/
+
+.loginmodal-container2 {
+  padding-top: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  /*max-width: 350px;*/
+  height: 575px;
+  width: 100% !important;
+  background-color: #f49d9d;
+  margin: 0 auto;
+  border-radius: 0px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  font-family: Adam;
+}
+
+.loginmodal-container2 h1 {
+  text-align: center;
+  font-size: 1.8em;
+  font-family: Adam;
+  font-family: Adam;
+  color: white;
+  text-decoration: underline;
+}
+
+.loginmodal-container2 input[type=submit] {
+  width: 50%;
+  display: block;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.loginmodal-container2 {
+  input[type=text], input[type=password], input[type=email] {
+    height: 40px;
+    font-family: Univers;
+    font-size: 12px;
     width: 100%;
     margin-bottom: 10px;
     -webkit-appearance: none;
@@ -252,6 +358,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-top: 10px;
   padding-bottom:10px;
 }
+
 .loginmodal {
   text-align: center;
   font-size: 14px;
@@ -264,27 +371,59 @@ h1, h2, h3, h4, h5, h6 {
   user-select: none; */
 }
 
-.loginmodal-submit {
+.loginmodal-submit1 {
   /* border: 1px solid #3079ed; */
   border: 0px;
   color: #fff;
   text-shadow: 0 1px rgba(0,0,0,0.1); 
-  background-color: #4d90fe;
+  background-color: #f49d9d;
   padding: 17px 0px;
-  font-family: roboto;
-  font-size: 14px;
+  font-family: Adam;
+  font-size: 16px;
+  border-radius: 50px;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
 }
 
-.loginmodal-submit:hover {
+.loginmodal-submit2:hover {
   /* border: 1px solid #2f5bb7; */
   border: 0px;
   text-shadow: 0 1px rgba(0,0,0,0.3);
-  background-color: #357ae8;
+  background-color: #83A8D7;
   /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
 }
 
-.loginmodal-container a {
+.loginmodal-submit2 {
+  /* border: 1px solid #3079ed; */
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #83A8D7;
+  padding: 17px 0px;
+  font-family: Adam;
+  font-size: 16px;
+  border-radius: 50px;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#4787ed)); */
+}
+
+.loginmodal-submit1:hover {
+  /* border: 1px solid #2f5bb7; */
+  border: 0px;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #f49d9d;
+  /* background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#4d90fe), to(#357ae8)); */
+}
+
+.loginmodal-container1 a {
+  text-decoration: none;
+  color: #666;
+  font-weight: 400;
+  text-align: center;
+  display: inline-block;
+  opacity: 0.6;
+  transition: opacity ease 0.5s;
+} 
+
+.loginmodal-container2 a {
   text-decoration: none;
   color: #666;
   font-weight: 400;
