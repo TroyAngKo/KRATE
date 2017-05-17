@@ -46,8 +46,12 @@
   </center>
   <div class="row container field reviewtext">
     <h4>Review</h4>
-    <%= f.text_area :review %>
-    <h6 class="text-center" id="count_message"></h6>
+    <% if user_signed_in? %>
+      <%= f.text_area :review %>
+      <h6 class="text-center" id="count_message"></h6>
+    <% else %>
+      You need to be logged in to submit a review
+    <% end %>
   </div>
 
   <div class="field checkbox">
@@ -55,10 +59,13 @@
     <font face="Adam" color="#f49d9d"><%= f.label :recommend %></font>
   </div>
   <div class="field">
+    <% if user_signed_in? %>
     <input type="hidden" name="user_id" value="<%=current_user.id%>">
-
+    <% end %>
   </div>
   <center><div class="actions">
-    <%= f.submit 'Submit', :class => 'reviewbtn' %>
+    <% if user_signed_in? %>
+      <%= f.submit 'Submit', :class => 'reviewbtn' %>
+    <% end %>
   </div></center>
 <% end %>
