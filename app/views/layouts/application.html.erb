@@ -126,7 +126,9 @@
 
                         <%= f.label :name %><br />
                         <%= f.text_field :name, autofocus: true %>
-
+                        
+                        <%= f.label :birthday %><br />
+                        <%= date_field("user", "birthday", max: Date.today, required: true) %> <br><br>
                         <%= f.label :email %><br />
                         <span style="color:white;display:none;" id="email-field-warning">Email address exists! Please pick another email address.</span>
                         <%= f.email_field :email, autofocus: true, id: 'email-field', required: true%>
