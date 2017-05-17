@@ -30,7 +30,7 @@
 <!--     <%= f.number_field :rating %>
  -->  
   <fieldset class="rating">
-    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"><%= image_tag("Rate0.png") %></label>
+    <input type="radio" id="star5" name="rating" value="5" onchange=""/><label class = "full" for="star5" title="Awesome - 5 stars"><%= image_tag("Rate0.png") %></label>
     
     <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"><%= image_tag("Rate0.png") %></label>
     
@@ -47,7 +47,9 @@
   <div class="row container field reviewtext">
     <h4>Review</h4>
     <%= f.text_area :review %>
+    <h6 class="text-center" id="count_message"></h6>
   </div>
+
   <div class="field checkbox">
     <%= f.check_box :recommend %>
     <font face="Adam" color="#f49d9d"><%= f.label :recommend %></font>
