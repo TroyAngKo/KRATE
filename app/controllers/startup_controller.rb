@@ -8,6 +8,16 @@ class StartupController < ApplicationController
 
   end
 
+  def delete_reviews
+    Review.delete_all
+    redirect_to :back
+  end
+
+  def delete_users
+    User.delete_all
+    redirect_to :back
+  end
+
   def get_background
 
     @movie = Tmdb::Movie.detail(params[:movie_id].to_i)
