@@ -23,6 +23,7 @@ class ShowsController < ApplicationController
     @cast = Tmdb::Movie.cast(params[:id])
     @reviews = Review::where(movie_id: params[:id]).joins(:user)
     @videos = Tmdb::Movie.videos(params[:id])
+    @images = Tmdb::Movie.backdrops(params[:id])
   end
 
   # GET /shows/new

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :shows
   devise_for :admins
-  devise_for :users, :controllers => { registrations: 'registrations' }
+  devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: "users/omniauth_callbacks"  }
   get 'startup/index'
 
   get 'startup/about_us'
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'startup#index'
 
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
