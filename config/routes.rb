@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'startup/delete_reviews'
   get 'startup/delete_users'
   get 'startup/get_background'
+  get 'startup/get_username'
+  get 'startup/get_email'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

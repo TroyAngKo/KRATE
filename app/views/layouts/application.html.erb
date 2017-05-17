@@ -121,18 +121,20 @@
                   </form> -->
                     <%= form_for(:user, url: registration_path(:user)) do |f| %>
                         <%= f.label :username %><br />
-                        <%= f.text_field :username, autofocus: true %>
+                        <span style="color:white;display:none;" id="username-field-warning">Username exists! Please pick another username.</span>
+                        <%= f.text_field :username, autofocus: true, id: 'username-field', required: true%>
 
                         <%= f.label :email %><br />
-                        <%= f.email_field :email, autofocus: true %>
+                        <span style="color:white;display:none;" id="email-field-warning">Email address exists! Please pick another email address.</span>
+                        <%= f.email_field :email, autofocus: true, id: 'email-field', required: true%>
 
                         <%= f.label :password %>
                         <% if @minimum_password_length %>
                         <em>(<%= @minimum_password_length %> characters minimum)</em>
                         <% end %><br />
-                        <%= f.password_field :password, autocomplete: "off" %>
+                        <%= f.password_field :password, autocomplete: "off", required: true %>
                         <%= f.label :password_confirmation %><br />
-                        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                        <%= f.password_field :password_confirmation, autocomplete: "off", required: true %>
 
                       <div class="actions">
                         <center><%= f.submit "Sign Up", class: 'loginmodal-submit1' %></center>
@@ -238,4 +240,52 @@
         </footer>
         <br>
 </body>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#username-field').focusout(function(){
+            val = $(this).val();
+            $.ajax({
+                dataType: 'JSON',
+                type: 'GET',
+                url: '/startup/get_username',
+                data: {username: val},
+                success: function(a) {
+                    if (a.found > 0) {
+                        $('#username-field-warning').css('display', 'block');
+                        $(".loginmodal-submit1").attr('disabled','disabled');
+                    } else {
+                        $('#username-field-warning').css('display', 'none');
+                        $(".loginmodal-submit1").removeAttr('disabled');
+                    }
+                },
+                error: function(a) {
+                    
+                }
+            });
+        });
+
+        $('#email-field').focusout(function(){
+            val = $(this).val();
+            $.ajax({
+                dataType: 'JSON',
+                type: 'GET',
+                url: '/startup/get_email',
+                data: {email: val},
+                success: function(a) {
+                    if (a.found > 0) {
+                        $('#email-field-warning').css('display', 'block');
+                        $(".loginmodal-submit1").attr('disabled','disabled');
+                    } else {
+                        $('#email-field-warning').css('display', 'none');
+                        $(".loginmodal-submit1").removeAttr('disabled');
+                    }
+                },
+                error: function(a) {
+                    
+                }
+            });
+        });
+    });
+</script>
 </html>
