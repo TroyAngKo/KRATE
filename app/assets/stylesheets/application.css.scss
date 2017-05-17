@@ -473,3 +473,12 @@ footer a {
 footer a:hover {
   background:none!important;
 }
+
+.facebook a {
+  color:white;
+
+  &:hover {
+    background: none;
+    text-decoration: underline;
+  }
+}

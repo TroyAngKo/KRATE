@@ -147,7 +147,7 @@
 
                       <p style="font-family: Univers">By signing up, I am agreeing to the Terms and Service and Privacy Policy.</p>
                     <% end %>
-                    <%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %>
+                    <h6 class="text-center facebook"><%= link_to "Sign up with Facebook", user_facebook_omniauth_authorize_path %></h6> 
 
                 </div>
             </div>
@@ -179,8 +179,10 @@
                     <% end %>
 
                   <div class="login-help">
-                    <a href="#">Forgot Password</a>
+                    <h6 class="text-center facebook"><a href="#">Forgot Password</a></h6>
                   </div>
+
+                  <h6 class="text-center facebook"><%= link_to "Log in with Facebook", user_facebook_omniauth_authorize_path %></h6> 
                 </div>
             </div>
             </div>
