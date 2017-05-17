@@ -1,0 +1,61 @@
+// Place all the styles related to the reviews controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.showimg {
+	width: 95%;
+	height: 300px;
+	background-color: #f49d9d;
+}
+
+
+fieldset, label { margin: 0; padding: 0; }
+body{ margin: 20px; }
+h1 { font-size: 1.5em; margin: 10px; }
+
+/****** Style Star Rating Widget *****/
+
+.full img {
+	height:40px;
+}
+
+.rating { 
+  border: none;
+  display:inline-block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  display: inline-block;
+}
+
+.rating > .half:before { 
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+  float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover > img, /* hover current star */
+.rating:not(:checked) > label:hover ~ label > img { 
+	content: image-url("Rate1.png");
+	height:40px;
+} /* hover previous stars in list */
+
+.rating > input:checked + label:hover > img, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover > img,
+.rating > label:hover ~ input:checked ~ label > img, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label > img { 
+	content: image-url("Rate1.png");
+	height:40px;
+	width:40px;	
+} 

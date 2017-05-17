@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Devproject</title>
+  <title>K-Rate</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
 </head>
 <body>
 
@@ -20,34 +25,34 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="/"><img id="brand-image" src="http://i67.tinypic.com/1268ad5.png" style="margin-top:-10px; height: 55px; widows: 40px" border="0" alt="Image and video hosting by TinyPic"></a>
+                <a class="navbar-brand" href="/"><img id="brand-image" src="http://i67.tinypic.com/1268ad5.png" style="margin-top:-8px; height: 45px" border="0" alt="Image and video hosting by TinyPic"></a>
                
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav text-center">
                     <li class="active">
-                        <%= link_to(new_review_path) do %>
-                            <i class="fa fa-pencil-square-o" style="font-size: 24px; color: #f49d9d"></i>
-                            <p style="color: #f49d9d">Write Review</p>
+                        <%= link_to(new_review_path, method: :get) do %>
+                            <i class="fa fa-pencil-square-o" style="font-size: 24px"></i>
+                            <p style="font-family: Adam">Write Review</p>
                         <% end %>
                     </li>
                     <li class="active">
                         <a href="#">
-                            <i class="fa fa-heart" style="font-size: 24px; color: #f49d9d"></i>
-                            <p style="color: #f49d9d">Following</p>
+                            <i class="fa fa-heart" style="font-size: 24px"></i>
+                            <p style="font-family: Adam">Following</p>
                         </a>
                     </li>
                     <li class="active">
                         <a href="#">
-                            <i class="fa fa-users" style="font-size: 24px; color: #f49d9d"></i>
-                            <p style="color: #f49d9d">Community</p>
+                            <i class="fa fa-users" style="font-size: 24px"></i>
+                            <p style="font-family: Adam">Community</p>
                         </a>
                     </li>
                     <li class="active">
                         <a href="#">
-                            <i class="fa fa-search" style="font-size: 24px; color: #f49d9d"></i>
-                            <p style="color: #f49d9d">Discover</p>
+                            <i class="fa fa-search" style="font-size: 24px"></i>
+                            <p style="font-family: Adam">Discover</p>
                         </a>
                     </li>
                 </ul>
@@ -73,49 +78,16 @@
                     <ul class="nav navbar-nav navbar-right">
                         <% if !user_signed_in? %>
                             <li class="active" style="height: 35px; border-right: 1px solid #83A8D7">
-                                <a href="/users/sign_in" data-target="#login-modal" data-toggle="modal" ><font color="#83A8D7">Log In</font></a>
+                                <a href="/users/sign_in" data-target="#login-modal" data-toggle="modal" id="navbarright">Log In</font></a>
                             </li>
                             <li class="active">
-                                <a href="/users/sign_up" data-target="#register"><font color="#83A8D7">Register</font></a>
+                                <a href="/users/sign_up" data-target="#login-modal" data-toggle="modal"  id="navbarright">Register</font></a>
                             </li>
                         <% else %>
-                            <li class="active">
+                            <li class="active" id="navbarright">
                                 <%= link_to current_user.username, destroy_user_session_path, :method => :delete %>
                             </li>
                         <% end %>
-
-                        <!-- log-in modal -->
-
-                        
-
-                        <!-- <div class="modal fade" id="login" tabindex="-1" role="form">
-                            <div class="modal dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Log-in</h4>
-                                    </div>
-
-                                    <div class="modal-body">
-                                        <form class="form-horizontal" role="form">
-                                            <div class="form-group">
-                                                <label for="inputUserName">Username</label>
-                                                <input class="form-control" placeholder="Login Username" type="text" id="inputUserName">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="inputPassword">Password</label>
-                                                <input class="form-control" placeholder="Login Password" type="password" id="inputPassword">
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary">Login</button>
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
 
                     </ul>
                 </div>
@@ -133,36 +105,72 @@
 
 
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="loginmodal-container">
-                <h1>Login to Your Account</h1><br>
-              <!-- <form>
-                <input type="text" name="user" placeholder="Username">
-                <input type="password" name="pass" placeholder="Password">
-                <input type="submit" name="login" class="login loginmodal-submit" value="Login">
-              </form> -->
-                <%= form_for(:user, url: session_path(:user)) do |f| %>
-                    <%= f.label :email %><br />
-                    <%= f.email_field :email, autofocus: true %>
+        <div class="modal-dialog modal-lg">
+        <div class="row">
+            <div class="col-sm-6" style="padding-right: 0px">
+                <div class="loginmodal-container1">
+                    <h1>Create a new account</h1><br>
+                  <!-- <form>
+                    <input type="text" name="user" placeholder="Username">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                  </form> -->
+                    <%= form_for(:user, url: registration_path(:user)) do |f| %>
+                        <%= f.label :username %><br />
+                        <%= f.text_field :username, autofocus: true %>
 
-                    <%= f.label :password %><br />
-                    <%= f.password_field :password, autocomplete: "off" %>
-                  <% if devise_mapping.rememberable? -%>
-                      <%= f.check_box :remember_me %>
-                      <%= f.label :remember_me %>
-                  <% end -%>
+                        <%= f.label :email %><br />
+                        <%= f.email_field :email, autofocus: true %>
 
-                  <div class="actions">
-                    <%= f.submit "Log in", class: 'loginmodal-submit' %>
+                        <%= f.label :password %>
+                        <% if @minimum_password_length %>
+                        <em>(<%= @minimum_password_length %> characters minimum)</em>
+                        <% end %><br />
+                        <%= f.password_field :password, autocomplete: "off" %>
+                        <%= f.label :password_confirmation %><br />
+                        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+
+                      <div class="actions">
+                        <center><%= f.submit "Sign Up", class: 'loginmodal-submit1' %></center>
+                      </div>
+
+                      <p style="font-family: Univers">By signing up, I am agreeing to the Terms and Service and Privacy Policy.</p>
+                    <% end %>
+
+                </div>
+            </div>
+            <div class="col-sm-6" style="padding-left: 0px">
+                <div class="loginmodal-container2">
+                <div class="row pull-right">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                    <h1>Log In</h1><br>
+                  <!-- <form>
+                    <input type="text" name="user" placeholder="Username">
+                    <input type="password" name="pass" placeholder="Password">
+                    <input type="submit" name="login" class="login loginmodal-submit" value="Login">
+                  </form> -->
+                    <%= form_for(:user, url: session_path(:user)) do |f| %>
+                        <%= f.label :username %><br />
+                        <%= f.text_field :username, autofocus: true %>
+
+                        <%= f.label :password %><br />
+                        <%= f.password_field :password, autocomplete: "off" %>
+                      <% if devise_mapping.rememberable? -%>
+                          <%= f.check_box :remember_me %>
+                          <%= f.label :remember_me %>
+                      <% end -%>
+
+                      <div class="actions">
+                        <center><%= f.submit "Log in", class: 'loginmodal-submit2' %></center>
+                      </div>
+                    <% end %>
+
+                  <div class="login-help">
+                    <a href="#">Forgot Password</a>
                   </div>
-                <% end %>
-
-                <%= render "devise/shared/links" %>
-
-                
-              <div class="login-help">
-                <a href="#">Register</a> - <a href="#">Forgot Password</a>
-              </div>
+                </div>
+            </div>
             </div>
         </div>
     </div>
@@ -185,6 +193,8 @@
 
     <%= yield %>
 
+    <hr>
+
 <!-- Footer -->
         <footer style="margin-top:50px;">
             <div class="container fluid">
@@ -192,27 +202,31 @@
                     <div class="col-sm-1">
                     </div>
                     <div class="col-sm-2">
-                        <p style="color: #a9a9a9"><u><%= link_to 'About Us', startup_about_us_path %></u><br>What We Do<br>Meet The Team<br>Contact Us</p>
+                        <p style="color: #a9a9a9"><p class="footerhead"><u><%= link_to 'About Us', startup_about_us_path %></u></p>
+                        <p class="footertext">What We Do<br>Meet The Team<br>Contact Us</p>
                     </div>
                     <div class="col-sm-2">
-                        <p style="color: #a9a9a9"><u>Help</u><br>FAQs<br>Terms and Privacy</p>
+                        <p style="color: #a9a9a9"><p class="footerhead"><u>Help</u></p>
+                        <p class="footertext">FAQs<br>Terms and Privacy</p>
                     </div>
                     <div class="col-sm-2"></center>
                         <img id="brand-image" src="http://i67.tinypic.com/1268ad5.png"  border="0" alt="Image and video hosting by TinyPic"></a>
                         <h3 style="color: #83a7d7; position: relative"><b>K.RATE</b></h3></center>
                     </div>
                     <div class="col-sm-2">
-                        <p style="color: #a9a9a9"><u>Contact Us</u><br>Email Us!<br>kratedramas@gmail.com</p>
+                        <p style="color: #a9a9a9"><p class="footerhead"><u>Contact Us</u></p>
+                        <p class="footertext">Email Us!<br>kratedramas@gmail.com</p>
                     </div>
                     <div class="col-sm-2">
-                        <p style="color: #a9a9a9"><u>Stay Connected</u><br>Like and Follow us:<br>-icons-</p>
+                        <p style="color: #a9a9a9"><p class="footerhead"><u>Connect</u></p>
+                        <p class="footertext">Like and Follow us:<br>-icons-</p>
                     </div>
                     <div class="col-sm-1">
                     </div>
                 </div>
                 <div class="row" style="margin-top: 1%">
                     <div class="col-sm-12" style="color: #f49d9d">
-                        <center><p>Copyright &copy; K.RATE Website 2017</p></center>
+                        <center><p class="footertext">Copyright &copy; K.RATE Website 2017</p></center>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,15 @@
 class ShowsController < ApplicationController
   before_action :set_show, only: [:show, :edit, :update, :destroy]
 
+  def get_background
+    puts "Hi"
+    @movie = Tmdb::Movie.detail(params[:id].to_i)
+    title = {"movie_title" => @movie.title}
+    respond_to do |format|
+      format.html
+      format.json { render json: title }  # respond with the created JSON object
+    end
+  end
   # GET /shows
   # GET /shows.json
   def index
@@ -12,6 +21,8 @@ class ShowsController < ApplicationController
   def show
     @show = Tmdb::Movie.detail(params[:id])
     @cast = Tmdb::Movie.cast(params[:id])
+    @reviews = Review::where(movie_id: params[:id]).joins(:user)
+    @videos = Tmdb::Movie.videos(params[:id])
   end
 
   # GET /shows/new

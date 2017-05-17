@@ -1,5 +1,41 @@
-<h1>New Review</h1>
+<div class="container-fluid">
+<h3>Write Review</h3>
+
 
 <%= render 'form' %>
 
-<%= link_to 'Back', reviews_path %>
+
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		function change_background(){
+			val = $('.selectpicker').val();
+			$.ajax({
+			    dataType: 'JSON',
+			    type: 'GET',
+			    url: '/startup/get_background',
+			    data: {movie_id: val},
+			    success: function(a) {
+			    	if (a.movie_title) {
+				    	returned = "url(http://image.tmdb.org/t/p/w780"+a.movie_title+")  no-repeat";
+				    	$('#background-poster').css('background',returned);
+				    	$('#background-poster').css('background-size','cover');
+				    } else {
+				    	$('#background-poster').css('background','#f49d9d');
+				    }
+			    },
+			    error: function(a) {
+			    	$('#background-poster').css('background','#f49d9d');
+			    }
+		  	});
+		}
+
+		change_background();
+		
+		$('.selectpicker').change(function(){
+			change_background();
+		});
+	});
+</script>

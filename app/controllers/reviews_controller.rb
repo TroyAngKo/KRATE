@@ -10,26 +10,40 @@ class ReviewsController < ApplicationController
   # GET /reviews/1
   # GET /reviews/1.json
   def show
-    
+    @review = ActiveRecord::Base::Review::find(params[:id])
+    @movie = Tmdb::Movie.detail(@review.movie_id).title
+    @user = User::find(@review.user_id)
   end
 
   # GET /reviews/new
   def new
     @review = Review.new
+    @movies = Tmdb::Keyword.movies(10586).results
+
+    @movies = @movies.sort_by &:title
   end
 
   # GET /reviews/1/edit
   def edit
+    @review = Review.new
+    @movies = Tmdb::Keyword.movies(10586).results
+
+    @movies = @movies.sort_by &:title
   end
 
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
+    @review = Review.new
+    @review.movie_id = params[:movie_id]
+    @review.user_id = params[:user_id]
+    @review.review = review_params[:review]
+    @review.recommend = review_params[:recommend]
+    @review.rating = params[:rating]
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to show_path(@review.movie_id), notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -70,6 +84,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:title, :rating, :review, :recommend, :rated_by)
+      params.require(:review).permit(:movie_id, :user_id, :rating, :review, :recommend)
     end
 end
