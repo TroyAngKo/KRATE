@@ -1,2 +1,28 @@
 <%= link_to "Delete Users", startup_delete_users_path %>
 <%= link_to "Delete Reviews", startup_delete_reviews_path %>
+
+
+<div class="container">
+	<div class="row">
+		<table class="styled">
+			<thead>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Birthday</th>
+			</thead>
+			<tbody>
+				<% if User.all.count > 0 %>
+					<% User.all.each do |user| %>
+						<tr>
+							<td><%= user.name %></td>
+							<td><%= user.username %></td>
+							<td><%= user.email %></td>
+							<td><%= user.birthday %></td>
+						</tr>
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
