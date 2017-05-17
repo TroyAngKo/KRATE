@@ -27,4 +27,24 @@ class StartupController < ApplicationController
       format.json { render json: title }  # respond with the created JSON object
     end
   end
+
+  def get_username
+    @user = User::where(username: params[:username]).count
+    puts @user
+    reply = {"found" => @user}
+    respond_to do |format|
+      format.html
+      format.json { render json: reply }  # respond with the created JSON object
+    end
+  end
+
+  def get_email
+    @user = User::where(email: params[:email]).count
+    puts @user
+    reply = {"found" => @user}
+    respond_to do |format|
+      format.html
+      format.json { render json: reply }  # respond with the created JSON object
+    end
+  end
 end
