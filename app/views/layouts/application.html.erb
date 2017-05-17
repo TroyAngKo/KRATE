@@ -32,7 +32,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav text-center">
                     <li class="active">
-                        <%= link_to(new_review_path) do %>
+                        <%= link_to(new_review_path, method: :get) do %>
                             <i class="fa fa-pencil-square-o" style="font-size: 24px"></i>
                             <p style="font-family: Adam">Write Review</p>
                         <% end %>
