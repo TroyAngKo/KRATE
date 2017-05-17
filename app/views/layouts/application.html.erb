@@ -85,7 +85,11 @@
                             </li>
                         <% else %>
                             <li class="active" id="navbarright">
-                                <%= link_to current_user.username, destroy_user_session_path, :method => :delete %>
+                                <% if current_user.username.nil? %>
+                                    <%= link_to current_user.name, destroy_user_session_path, :method => :delete %>
+                                <% else %>
+                                    <%= link_to current_user.username, destroy_user_session_path, :method => :delete %>
+                                <% end %>
                             </li>
                         <% end %>
 
