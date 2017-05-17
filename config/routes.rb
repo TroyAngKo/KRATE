@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'startup/get_background'
   get 'startup/get_username'
   get 'startup/get_email'
+  get 'users/profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
