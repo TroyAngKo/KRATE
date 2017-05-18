@@ -21,7 +21,9 @@ class ShowsController < ApplicationController
   def show
     @show = Tmdb::Movie.detail(params[:id])
     @cast = Tmdb::Movie.cast(params[:id])
-    @reviews = Review::where(movie_id: params[:id]).joins(:user)
+    @reviews = Review::where(movie_id: params[:id]).where('review is not null').joins(:user)
+    @recommendations = Review::where(movie_id: params[:id]).where('recommend is not null').joins(:user)
+    @ratings = Review::where(movie_id: params[:id]).where('rating IS NOT NULL').joins(:user)
     @videos = Tmdb::Movie.videos(params[:id])
     @images = Tmdb::Movie.backdrops(params[:id])
   end
