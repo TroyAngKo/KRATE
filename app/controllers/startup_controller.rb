@@ -29,7 +29,9 @@ class StartupController < ApplicationController
   end
 
   def community
+    @featured = Show.all.order(:popularity).where('backdrop_path != ?', "")[0..3]
 
+    @reviews = Review.where('reviews.review is not null').joins(:user).joins(:show)
   end
 
   def delete_reviews

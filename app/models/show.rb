@@ -1,4 +1,5 @@
 class Show < ActiveRecord::Base
+	has_many :reviews
 	def rating
 		rating = Review.where(movie_id: self.id).where('rating is not null').average(:rating)
 
