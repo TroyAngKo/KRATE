@@ -20,7 +20,7 @@
 				<p style="font-family: Adam; font-size: 18px; margin-bottom: 0px">789</p>Followers
 			</div>
 			<div class="col-sm-4" style="margin-top: 8px; font-family: Adam; font-size: 20px">
-				BenchAndSnap
+				<%= current_user.username%>
 			</div>
 			<div class="col-sm-2">
 				<p style="font-family: Adam; font-size: 18px; margin-bottom: 0px">1555</p>Rated Dramas
@@ -71,38 +71,23 @@
 		</div>
 		<div class="row" style="margin-top: 40px">
 			<div class="col-sm-10 col-sm-offset-1" style="margin-bottom: 20px">
-				<div class="col-sm-2" style="margin: 20px">
-					<div class="image-cropper">
-					    <!-- <img src="/images/BenchOfilada.JPG" class="rounded" /> -->
-					    <%= image_tag("BenchOfilada.JPG", :class => "rounded", :alt => "rss feed") %>
+				<% @reviews.each do |review | %>
+					<div class="col-sm-2" style="margin: 20px">
+						<div class="image-cropper">
+						    <!-- <img src="/images/BenchOfilada.JPG" class="rounded" /> -->
+						    <%= image_tag("BenchOfilada.JPG", :class => "rounded", :alt => "rss feed") %>
+						</div>
 					</div>
-				</div>
-				<div class="col-sm-9">
-					<div class="marker">
-						<p style="font-family: Univers; color: #83A8D7">2 days ago on Goblin: The Great and Lonely Guardian</p>
+					<div class="col-sm-9">
+						<div class="marker">
+							<p style="font-family: Univers; color: #83A8D7"><%= (Date.today.to_date - review.created_at.to_date).to_i %> days ago on <%= review.show.title %></p>
+						</div>
+						<div class="reviewbox">
+						<%= review.review %>
+						</div>
 					</div>
-					<div class="reviewbox">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-10 col-sm-offset-1" style="margin-bottom: 20px">
-				<div class="col-sm-2" style="margin: 20px">
-					<div class="image-cropper">
-					    <!-- <img src="/images/BenchOfilada.JPG" class="rounded" /> -->
-					    <%= image_tag("BenchOfilada.JPG", :class => "rounded", :alt => "rss feed") %>
-					</div>
-				</div>
-				<div class="col-sm-9">
-					<div class="marker">
-						<p style="font-family: Univers; color: #83A8D7">2 days ago on Goblin: The Great and Lonely Guardian</p>
-					</div>
-					<div class="reviewbox">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					</div>
-				</div>
+				<%end %>
+				
 			</div>
 		</div>
 	</div>

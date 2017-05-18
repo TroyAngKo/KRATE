@@ -38,22 +38,22 @@
                         <% end %>
                     </li>
                     <li class="active">
-                        <a href="#">
+                        <%= link_to(following_path, method: :get) do %>
                             <i class="fa fa-heart" style="font-size: 24px"></i>
                             <p style="font-family: Adam">Following</p>
-                        </a>
+                        <% end %>
                     </li>
                     <li class="active">
-                        <a href="#">
+                        <%= link_to(community_path, method: :get) do %>
                             <i class="fa fa-users" style="font-size: 24px"></i>
                             <p style="font-family: Adam">Community</p>
-                        </a>
+                        <% end %>
                     </li>
                     <li class="active">
-                        <a href="#">
+                        <%= link_to(discover_path, method: :get) do %>
                             <i class="fa fa-search" style="font-size: 24px"></i>
                             <p style="font-family: Adam">Discover</p>
-                        </a>
+                        <% end %>
                     </li>
                 </ul>
 
@@ -216,7 +216,7 @@
                     <div class="col-sm-1">
                     </div>
                     <div class="col-sm-2">
-                        <p style="color: #a9a9a9"><p class="footerhead"><u><%= link_to 'About Us', startup_about_us_path %></u></p>
+                        <p style="color: #a9a9a9"><p class="footerhead"><u><%= link_to 'About Us', about_us_path %></u></p>
                         <p class="footertext">What We Do<br>Meet The Team<br>Contact Us</p>
                     </div>
                     <div class="col-sm-2">
@@ -233,7 +233,9 @@
                     </div>
                     <div class="col-sm-2">
                         <p style="color: #a9a9a9"><p class="footerhead"><u>Connect</u></p>
-                        <p class="footertext">Like and Follow us:<br>-icons-</p>
+                        <p class="footertext">Like and Follow us:</p>
+                        <%= image_tag("https://facebookbrand.com/wp-content/themes/fb-branding/prj-fb-branding/assets/images/fb-art.png", :class => "rounded", :style => "height: 20px") %>
+                        <%= image_tag("https://upload.wikimedia.org/wikipedia/en/thumb/9/9f/Twitter_bird_logo_2012.svg/1259px-Twitter_bird_logo_2012.svg.png", :class => "rounded", :style => "height: 20px") %>
                     </div>
                     <div class="col-sm-1">
                     </div>

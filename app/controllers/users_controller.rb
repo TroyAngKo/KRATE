@@ -4,7 +4,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :email, :password, :password_confirmation)
     end
 	def profile
-
+		@reviews = Review.where('reviews.review is not null').joins(:user).joins(:show)[0..3]
 	end
 
 	def review_show
