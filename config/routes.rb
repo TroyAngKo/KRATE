@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations', omniauth_callbacks: "users/omniauth_callbacks"  }
   get 'startup/index'
 
-  get 'startup/about_us'
+  get '/about_us', to: "startup#about_us", as: :about_us
+  get '/discover', to: "startup#discover", as: :discover
+  get '/community', to: "startup#community", as: :community
+  get '/following', to: "startup#following", as: :following
   get 'startup/adminactions'
   get 'startup/delete_reviews'
   get 'startup/delete_users'
@@ -16,7 +19,6 @@ Rails.application.routes.draw do
 
   get 'users/review_show'
   get 'users/rate_show'
-  get '/following', to: "startup#following", as: :following
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

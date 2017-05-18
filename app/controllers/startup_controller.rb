@@ -24,6 +24,16 @@ class StartupController < ApplicationController
 
   end
 
+  def discover
+    @shows = Show.all.paginate(:page => params[:page], :per_page => 20)
+  end
+
+  def community
+    @featured = Show.all.order(:popularity).where('backdrop_path != ?', "")[0..3]
+
+    @reviews = Review.where('reviews.review is not null').joins(:user).joins(:show)
+  end
+
   def delete_reviews
     Review.delete_all
     redirect_to :back

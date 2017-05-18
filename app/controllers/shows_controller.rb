@@ -84,7 +84,7 @@ class ShowsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_show
-      @show = Tmdb::Movie.detail(params[:id])
+      @show = Tmdb::TV.detail(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

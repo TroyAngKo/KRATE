@@ -1,0 +1,20 @@
+<div class="container" style="padding-top:40px;">
+	<div class="text-center">
+		<%= will_paginate @shows, renderer: BootstrapPagination::Rails %>
+	</div>
+	<div class="row">
+		<% @shows.each do |show| %>
+			<div class="col-xs-12 col-sm-3" style="height:550px;">
+				<%= link_to(show_path(show.id)) do %>
+					<% if !show.backdrop_path.nil? %>
+						<img src="http://image.tmdb.org/t/p/w300<%= show.backdrop_path %>"border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/> 
+					<% else %>
+						<div style="width:100%;height:70%;background:#F69D9C;display:flex; align-items:center; justify-content: center;"><h6 class="text-center" style="color:white">No poster</h6></div>				
+					<% end %>
+				<% end %>
+				<h5 class="text-center" style="color:#85A9DA;"><%= show.title %></h5>
+				<h5 class="text-center" style="color:#85A9DA;">Rating: <%= show.rating %></h5>
+			</div>
+		<% end %>
+	</div>
+</div>
