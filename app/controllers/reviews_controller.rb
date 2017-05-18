@@ -15,12 +15,18 @@ class ReviewsController < ApplicationController
     @user = User::find(@review.user_id)
   end
 
+
   # GET /reviews/new
   def new
     @review = Review.new
-    @movies = Tmdb::Keyword.movies(10586).results
+    response = open('https://api.themoviedb.org/3/discover/movie?api_key=401b1b1c2360ebe7559fdd9c1328359f&sort_by=original_title.asc&include_adult=false&include_video=false&page=1&with_keywords=10586').read
+    data = JSON.parse(response)
+    @movies = data['results']
 
-    @movies = @movies.sort_by &:title
+    if !params['format'].nil?
+      @selected_show = Integer(params['format'])
+    end
+
   end
 
   # GET /reviews/1/edit
@@ -38,7 +44,10 @@ class ReviewsController < ApplicationController
     @review.movie_id = params[:movie_id]
     @review.user_id = params[:user_id]
     @review.review = review_params[:review]
-    @review.recommend = review_params[:recommend]
+
+    if !User.find(params[:user_id]).has_recommended_this(params[:movie_id])
+      @review.recommend = review_params[:recommend]
+    end
     @review.rating = params[:rating]
 
     respond_to do |format|

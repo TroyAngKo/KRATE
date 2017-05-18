@@ -482,3 +482,21 @@ footer a:hover {
     text-decoration: underline;
   }
 }
+
+.button-kr {
+  background:transparent;
+  outline:0;
+  border: 1px solid white;
+  color: white!important;
+  font-family: 'ADAM';
+  padding-left: 30px;
+  padding-right:30px;
+  padding-bottom:8px;
+  padding-top:12px;
+  &:hover {
+    background:white;
+    color:#f49d9d!important;
+    text-decoration:none;
+    cursor: pointer
+  }
+}

@@ -17,21 +17,13 @@
                     <!-- Wrapper for slides -->
                     <div class="overlay">Trending</div>
                     <div class="carousel-inner" role="listbox" style="height:500px">
-                        <div class="item active">
-                            <img src="http://image.tmdb.org/t/p/w780<%= @movies.first.backdrop_path %>"border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>    
-                        </div>
-
-                        <div class="item ">
-                            <img src="http://i67.tinypic.com/5exqp1.jpg" border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>
-                        </div>
-
-                        <div class="item ">
-                            <img src="https://www.dramafever.com/st/img/nowplay/4981_WeightliftingFairyKimBokJoo_Nowplay_Small.jpg" border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>
-                        </div>    
-
-                        <div class="item">
-                                <img src="http://i64.tinypic.com/zwkh7q.jpg" border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/>   
+                        <% @trending.each_with_index do |show, key| %>
+                            <div class="item <%= key == 0 ? 'active' : '' %>">
+                                <%= link_to(show_path(show['id'])) do %>
+                                    <img src="http://image.tmdb.org/t/p/w780<%= show['backdrop_path'] %>"border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/> 
+                                <% end %>   
                             </div>
+                        <% end %>
                     </div>
 
                     <!-- Control or next and prev buttons -->
@@ -157,22 +149,32 @@
                     
                     <!-- Carousel items -->
                     <div class="overlay">Featured</div>
-                    <div class="carousel-inner" style="height:200px">
+                    <div class="carousel-inner" style="height:300px">
                         <div class="item active">
-                            <% @movies.each do |movie| %>
+                            <% @featured[0..3].each do |movie| %>
                                 <div class="col-sm-3">
-                                    <%= link_to(show_path(movie.id)) do %>
-                                        <img src="http://image.tmdb.org/t/p/w185<%= movie.backdrop_path %>" alt="Image" class="img-responsive" style="height: 200px">
+                                    <%= link_to(show_path(movie['id'])) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
                                     <% end %>
                                 </div>
                             <% end %>
                         </div>
 
                         <div class="item ">
-                            <% @movies.each do |movie| %>
+                            <% @featured[4..7].each do |movie| %>
                                 <div class="col-sm-3">
-                                    <%= link_to(show_path(movie.id)) do %>
-                                        <img src="http://image.tmdb.org/t/p/w185<%= movie.backdrop_path %>" alt="Image" class="img-responsive" style="height: 200px">
+                                    <%= link_to(show_path(movie['id'])) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
+                                    <% end %>
+                                </div>
+                            <% end %>
+                        </div>
+
+                        <div class="item ">
+                            <% @featured[8..11].each do |movie| %>
+                                <div class="col-sm-3">
+                                    <%= link_to(show_path(movie['id'])) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
                                     <% end %>
                                 </div>
                             <% end %>
@@ -204,22 +206,32 @@
                     
                     <!-- Carousel items -->
                     <div class="overlay">New</div>
-                    <div class="carousel-inner" style="height:200px">
+                    <div class="carousel-inner" style="height:300px">
                         <div class="item active">
-                            <% @movies.each do |movie| %>
+                            <% @new[0..3].each do |movie| %>
                                 <div class="col-sm-3">
-                                    <%= link_to(show_path(movie.id)) do %>
-                                        <img src="http://image.tmdb.org/t/p/w185<%= movie.backdrop_path %>" alt="Image" class="img-responsive" style="height: 200px">
+                                    <%= link_to(show_path(movie['id'])) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
                                     <% end %>
                                 </div>
                             <% end %>
                         </div>
 
                         <div class="item ">
-                            <% @movies.each do |movie| %>
+                            <% @new[4..7].each do |movie| %>
                                 <div class="col-sm-3">
-                                    <%= link_to(show_path(movie.id)) do %>
-                                        <img src="http://image.tmdb.org/t/p/w185<%= movie.backdrop_path %>" alt="Image" class="img-responsive" style="height: 200px">
+                                    <%= link_to(show_path(movie['id'])) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
+                                    <% end %>
+                                </div>
+                            <% end %>
+                        </div>
+
+                        <div class="item ">
+                            <% @new[8..11].each do |movie| %>
+                                <div class="col-sm-3">
+                                    <%= link_to(show_path(movie['id'])) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
                                     <% end %>
                                 </div>
                             <% end %>
