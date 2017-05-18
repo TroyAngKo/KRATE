@@ -15,3 +15,25 @@
 .daebak {
 	padding: 0px;
 }
+
+.overlay-img {
+	background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+	position: absolute;
+    top: 0;
+    width: 90%;
+    height:300px;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    visibility: hidden;
+	.text h5 {
+		text-align:center;
+		color:white!important;
+	}
+}
+
+.with-hover .item .col-sm-3:hover, .with-hover-main .item:hover {
+	.overlay-img {
+		visibility:visible;
+	}
+}
