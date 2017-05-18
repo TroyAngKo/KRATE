@@ -13,10 +13,10 @@ class StartupController < ApplicationController
     @trending = @movies.order(:popularity).where('backdrop_path != ?', "")[0..3]
     
     # first 12 highest votes shows
-    @featured = @movies.order(:vote_average)[0..11]
+    @featured = @movies.order(:vote_average).where('backdrop_path != ?', "")[0..11]
     
     # first 12 newest shows
-    @new = @movies.order(:release_date)[0..11]
+    @new = @movies.order(:release_date).where('backdrop_path != ?', "")[0..11]
 
   end
 
