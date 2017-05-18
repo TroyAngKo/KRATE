@@ -28,6 +28,10 @@ class StartupController < ApplicationController
     @shows = Show.all.paginate(:page => params[:page], :per_page => 20)
   end
 
+  def community
+
+  end
+
   def delete_reviews
     Review.delete_all
     redirect_to :back

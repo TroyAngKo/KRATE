@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get '/about_us', to: "startup#about_us", as: :about_us
   get '/discover', to: "startup#discover", as: :discover
+  get '/community', to: "startup#community", as: :community
+  get '/following', to: "startup#following", as: :following
   get 'startup/adminactions'
   get 'startup/delete_reviews'
   get 'startup/delete_users'
