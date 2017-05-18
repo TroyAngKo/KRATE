@@ -24,6 +24,10 @@ class StartupController < ApplicationController
 
   end
 
+  def discover
+    @shows = Show.all.paginate(:page => params[:page], :per_page => 20)
+  end
+
   def delete_reviews
     Review.delete_all
     redirect_to :back

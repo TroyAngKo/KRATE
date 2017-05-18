@@ -31,6 +31,8 @@ gem 'taps'
 gem 'themoviedb-api'
 gem 'puma'
 
+gem 'will_paginate-bootstrap'
+
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 # Use ActiveModel has_secure_password
