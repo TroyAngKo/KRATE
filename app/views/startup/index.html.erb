@@ -24,9 +24,9 @@
                                     <div class="overlay-img" style="height:500px;width:100%;">
                                         <div class="text">
                                             <h5><%= show['title'] %></h5>
-                                            <% rating = Review.where(movie_id: show['id']).where('rating is not null').average(:rating).round(2) %>
+                                            <% rating = Review.where(movie_id: show['id']).where('rating is not null').average(:rating) %>
                                             <% recommendations = Review.where(movie_id: show['id']).where(recommend: true).count %>
-                                            <h5>Rating: <%= !rating.nil? ? rating : 'No ratings yet' %></h5>
+                                            <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                             <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                         </div>
                                     </div>
@@ -168,9 +168,9 @@
                                         <div class="overlay-img">
                                             <div class="text">
                                                 <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating).round(2)%>
+                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
                                                 <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
-                                                <h5>Rating: <%= !rating.nil? ? rating : 'No ratings yet' %></h5>
+                                                <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
                                         </div>
@@ -187,9 +187,9 @@
                                         <div class="overlay-img">
                                             <div class="text">
                                                 <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating).round(2)%>
+                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
                                                 <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
-                                                <h5>Rating: <%= !rating.nil? ? rating : 'No ratings yet' %></h5>
+                                                <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
                                         </div>
@@ -206,9 +206,9 @@
                                         <div class="overlay-img">
                                             <div class="text">
                                                 <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating).round(2)%>
+                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
                                                 <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
-                                                <h5>Rating: <%= !rating.nil? ? rating : 'No ratings yet' %></h5>
+                                                <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
                                         </div>
@@ -252,9 +252,9 @@
                                         <div class="overlay-img">
                                             <div class="text">
                                                 <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating).round(2)%>
+                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
                                                 <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
-                                                <h5>Rating: <%= !rating.nil? ? rating : 'No ratings yet' %></h5>
+                                                <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
                                         </div>
@@ -271,9 +271,9 @@
                                         <div class="overlay-img">
                                             <div class="text">
                                                 <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating).round(2)%>
+                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
                                                 <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
-                                                <h5>Rating: <%= !rating.nil? ? rating : 'No ratings yet' %></h5>
+                                                <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
                                         </div>
@@ -290,9 +290,9 @@
                                         <div class="overlay-img">
                                             <div class="text">
                                                 <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating).round(2)%>
+                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
                                                 <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
-                                                <h5>Rating: <%= !rating.nil? ? rating : 'No ratings yet' %></h5>
+                                                <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
                                         </div>
