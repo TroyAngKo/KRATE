@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
   # GET /reviews/1.json
   def show
     @review = ActiveRecord::Base::Review::find(params[:id])
-    @movie = Tmdb::Movie.detail(@review.movie_id).title
+    @movie = Tmdb::TV.detail(@review.movie_id).title
     @user = User::find(@review.user_id)
   end
 
@@ -19,9 +19,8 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
-    response = open('https://api.themoviedb.org/3/discover/movie?api_key=401b1b1c2360ebe7559fdd9c1328359f&sort_by=original_title.asc&include_adult=false&include_video=false&page=1&with_keywords=10586').read
-    data = JSON.parse(response)
-    @movies = data['results']
+    
+    @movies = Show.order(:title)
 
     if !params['format'].nil?
       @selected_show = Integer(params['format'])

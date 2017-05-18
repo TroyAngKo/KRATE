@@ -97,6 +97,21 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #f49d9d;
 }
 
+.overlay2 { 
+  color: white;
+  font-size: 18px;
+  font-family: Adam;
+  position:absolute;
+  z-index:12;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-top: 5px;
+  margin-left: 0px;
+  /*width: 200px;*/
+  background-color: #f49d9d;
+}
+
 
 .checkbox {
 	margin-left: 50px;
@@ -483,6 +498,60 @@ footer a:hover {
   }
 }
 
+.profpic {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  
+  img {
+    display: block;
+    min-width: 100%;
+    min-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: -100%;
+    right: -100%;
+    bottom: -100%;
+    left: -100%;
+  }
+}
+
+.reviewbox {
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	font-family: Univers;
+	padding: 10px;
+}
+
+.image-cropper {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+img {
+    display: inline;
+    margin: 0 auto;
+    height: 180%;
+    width: auto;
+}
+
+.image-cropper2 {
+    width: 230px;
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0px;
+}
+
+img {
+    display: inline;
+    margin: 0 auto;
+    height: 180%;
+    width: auto;
+}
 .button-kr {
   background:transparent;
   outline:0;
