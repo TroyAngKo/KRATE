@@ -33,14 +33,14 @@
 		}
 
 		var text_max = 140;
-		$('#count_message').html(text_max + ' characters left');
+		$('#count_message').html('140 characters minimum. '+text_max + ' character/s left');
 
 		$('#review_review').keyup(function() {
 		  var text_length = $('#review_review').val().length;
 		  var text_remaining = text_max - text_length;
 
 		  if (text_remaining > 0) {
-			  $('#count_message').html(text_remaining + ' character/s left');
+			  $('#count_message').html('140 characters minimum. '+text_remaining + ' character/s left');
 			  $("form.new_review input[type=submit]").attr('disabled','disabled');
 			}
 			else {
