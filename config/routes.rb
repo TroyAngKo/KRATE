@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'users/profile'
 
   get 'users/review_show'
+  get 'users/rate_show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

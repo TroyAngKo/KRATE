@@ -48,7 +48,10 @@ class ReviewsController < ApplicationController
     if !User.find(params[:user_id]).has_recommended_this(params[:movie_id])
       @review.recommend = review_params[:recommend]
     end
-    @review.rating = params[:rating]
+
+    if !User.find(params[:user_id]).has_rated_this(params[:movie_id])
+      @review.rating = params[:rating]
+    end
 
     respond_to do |format|
       if @review.save
