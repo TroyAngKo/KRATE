@@ -26,6 +26,8 @@ class ShowsController < ApplicationController
     @ratings = Review::where(movie_id: params[:id]).where('rating IS NOT NULL').joins(:user)
     @videos = Tmdb::Movie.videos(params[:id])
     @images = Tmdb::Movie.backdrops(params[:id])
+
+    @review = Review.new
   end
 
   # GET /shows/new
