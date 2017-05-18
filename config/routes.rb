@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   get 'users/review_show'
   get 'users/rate_show'
+  get '/following', to: "startup#following", as: :following
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

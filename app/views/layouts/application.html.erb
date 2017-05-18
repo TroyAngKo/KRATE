@@ -38,10 +38,10 @@
                         <% end %>
                     </li>
                     <li class="active">
-                        <a href="#">
+                        <%= link_to(following_path, method: :get) do %>
                             <i class="fa fa-heart" style="font-size: 24px"></i>
                             <p style="font-family: Adam">Following</p>
-                        </a>
+                        <% end %>
                     </li>
                     <li class="active">
                         <a href="#">

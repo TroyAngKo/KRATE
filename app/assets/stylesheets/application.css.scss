@@ -562,6 +562,35 @@ img {
     
 }
 
+/*who to follow*/
+.image-cropper3 {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+    	position: relative;
+    	top: -20px;
+    	/*left: 0px;*/
+    }
+}
+
+/*following dp*/
+.image-cropper4 {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+    	position: relative;
+    	top: -20px;
+    }
+}
+
 .button-kr {
   background:transparent;
   outline:0;
@@ -578,4 +607,11 @@ img {
     text-decoration:none;
     cursor: pointer
   }
+}
+
+.followbtn {
+	font-family: Univers;
+	color: white;
+	border-color: transparent;
+	background-color: #83A8D7;
 }
