@@ -20,7 +20,6 @@ class StartupController < ApplicationController
 
     @daebak = Show.all.joins(:reviews).where('reviews.rating is not null').select('shows.*, avg(reviews.rating) as ratings').group('movie_id').order("ratings desc")[0..2]
 
-    puts @daebak
   end
 
   def about_us
