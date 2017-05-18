@@ -26,7 +26,7 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
 						<h3 class="summary">
-							Tags: <%= @show.genres.map(&:name).join(', ') %>
+							Tags: <%= @tags.map(&:name).join(', ') %>
 						</h3>
 					</div>
 				</div>
@@ -109,7 +109,7 @@
     <div role="tabpanel" class="tab-pane gradient-bg" id="photos">
     	<div class="container">
     		<div class="row">
-    			<div class="col-xs-12">
+    			<div class="col-xs-12" style="height:400px;display:flex;align-items:center;justify-content: center;">
     				<% if @images.length > 0 %>
 	    				<div id="pictures-slider" class="carousel slide" data-ride="carousel" style="height:80vh">
 
@@ -173,7 +173,9 @@
 		    	<% end %>
 	    	</div>
 	    <% else %>
+	    	<div class="col-xs-12" style="height:400px;display:flex;align-items:center;justify-content: center;">
 			<h5 class="text-center" style="color:white">No videos!</h5>
+			</div>
 	    <% end %>
     	
     </div>

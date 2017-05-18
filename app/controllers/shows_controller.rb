@@ -3,7 +3,7 @@ class ShowsController < ApplicationController
 
   def get_background
     puts "Hi"
-    @movie = Tmdb::Movie.detail(params[:id].to_i)
+    @movie = Tmdb::TV.detail(params[:id].to_i)
     title = {"movie_title" => @movie.title}
     respond_to do |format|
       format.html
@@ -19,15 +19,17 @@ class ShowsController < ApplicationController
   # GET /shows/1
   # GET /shows/1.json
   def show
-    @show = Tmdb::Movie.detail(params[:id])
-    @cast = Tmdb::Movie.cast(params[:id])
+    @show = Tmdb::TV.detail(params[:id])
+    @cast = Tmdb::TV.cast(params[:id])
     @reviews = Review::where(movie_id: params[:id]).where('review is not null').joins(:user)
     @recommendations = Review::where(movie_id: params[:id]).where('recommend is not null').joins(:user)
     @ratings = Review::where(movie_id: params[:id]).where('rating IS NOT NULL').joins(:user)
-    @videos = Tmdb::Movie.videos(params[:id])
-    @images = Tmdb::Movie.backdrops(params[:id])
+    @videos = Tmdb::TV.videos(params[:id])
+    @images = Tmdb::TV.backdrops(params[:id])
 
     @review = Review.new
+
+    @tags = Tmdb::TV.keywords(params[:id])
   end
 
   # GET /shows/new

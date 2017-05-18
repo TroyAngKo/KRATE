@@ -15,7 +15,7 @@
   <center><div class="field showpicker">
     <select class="selectpicker" data-live-search="true" data-width="45%" name="movie_id">
       <% @movies.each do |movie| %>
-        <option value="<%= movie['id'] %>" <%= movie['id'] == @selected_show ? 'selected' : '' %>><%= movie['title'] %></option>
+        <option value="<%= movie['id'] %>" <%= movie.id == @selected_show ? 'selected' : '' %>><%= movie.title %></option>
       <% end %>
     </select>
   </div></center>

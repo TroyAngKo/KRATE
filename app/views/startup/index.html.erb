@@ -19,13 +19,13 @@
                     <div class="carousel-inner with-hover-main" role="listbox" style="height:500px">
                         <% @trending.each_with_index do |show, key| %>
                             <div class="item <%= key == 0 ? 'active' : '' %>">
-                                <%= link_to(show_path(show['id'])) do %>
-                                    <img src="http://image.tmdb.org/t/p/w780<%= show['backdrop_path'] %>"border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/> 
+                                <%= link_to(show_path(show.id)) do %>
+                                    <img src="http://image.tmdb.org/t/p/original<%= show.backdrop_path %>"border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/> 
                                     <div class="overlay-img" style="height:500px;width:100%;">
                                         <div class="text">
-                                            <h5><%= show['title'] %></h5>
-                                            <% rating = Review.where(movie_id: show['id']).where('rating is not null').average(:rating) %>
-                                            <% recommendations = Review.where(movie_id: show['id']).where(recommend: true).count %>
+                                            <h5><%= show.title %></h5>
+                                            <% rating = Review.where(movie_id: show.id).where('rating is not null').average(:rating) %>
+                                            <% recommendations = Review.where(movie_id: show.id).where(recommend: true).count %>
                                             <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                             <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                         </div>
@@ -163,13 +163,13 @@
                         <div class="item active">
                             <% @featured[0..3].each do |movie| %>
                                 <div class="col-sm-3" >
-                                    <%= link_to(show_path(movie['id'])) do %>
-                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie.backdrop_path %>" alt="Image" class="img-responsive">
                                         <div class="overlay-img">
                                             <div class="text">
-                                                <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
-                                                <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
+                                                <h5><%= movie.title %></h5>
+                                                <% rating = Review.where(movie_id: movie.id).where('rating is not null').average(:rating)%>
+                                                <% recommendations = Review.where(movie_id: movie.id).where(recommend: true).count %>
                                                 <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
@@ -182,13 +182,13 @@
                         <div class="item ">
                             <% @featured[4..7].each do |movie| %>
                                 <div class="col-sm-3 underlay">
-                                    <%= link_to(show_path(movie['id'])) do %>
-                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie.backdrop_path %>" alt="Image" class="img-responsive">
                                         <div class="overlay-img">
                                             <div class="text">
-                                                <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
-                                                <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
+                                                <h5><%= movie.title %></h5>
+                                                <% rating = Review.where(movie_id: movie.id).where('rating is not null').average(:rating)%>
+                                                <% recommendations = Review.where(movie_id: movie.id).where(recommend: true).count %>
                                                 <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
@@ -201,13 +201,13 @@
                         <div class="item ">
                             <% @featured[8..11].each do |movie| %>
                                 <div class="col-sm-3">
-                                    <%= link_to(show_path(movie['id'])) do %>
-                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie.backdrop_path %>" alt="Image" class="img-responsive">
                                         <div class="overlay-img">
                                             <div class="text">
-                                                <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
-                                                <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
+                                                <h5><%= movie.title %></h5>
+                                                <% rating = Review.where(movie_id: movie.id).where('rating is not null').average(:rating)%>
+                                                <% recommendations = Review.where(movie_id: movie.id).where(recommend: true).count %>
                                                 <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
@@ -247,13 +247,13 @@
                         <div class="item active">
                             <% @new[0..3].each do |movie| %>
                                 <div class="col-sm-3">
-                                    <%= link_to(show_path(movie['id'])) do %>
-                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie.backdrop_path %>" alt="Image" class="img-responsive">
                                         <div class="overlay-img">
                                             <div class="text">
-                                                <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
-                                                <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
+                                                <h5><%= movie.title %></h5>
+                                                <% rating = Review.where(movie_id: movie.id).where('rating is not null').average(:rating)%>
+                                                <% recommendations = Review.where(movie_id: movie.id).where(recommend: true).count %>
                                                 <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
@@ -266,13 +266,13 @@
                         <div class="item ">
                             <% @new[4..7].each do |movie| %>
                                 <div class="col-sm-3">
-                                    <%= link_to(show_path(movie['id'])) do %>
-                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie.backdrop_path %>" alt="Image" class="img-responsive">
                                         <div class="overlay-img">
                                             <div class="text">
-                                                <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
-                                                <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
+                                                <h5><%= movie.title %></h5>
+                                                <% rating = Review.where(movie_id: movie.id).where('rating is not null').average(:rating)%>
+                                                <% recommendations = Review.where(movie_id: movie.id).where(recommend: true).count %>
                                                 <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
@@ -285,13 +285,13 @@
                         <div class="item ">
                             <% @new[8..11].each do |movie| %>
                                 <div class="col-sm-3">
-                                    <%= link_to(show_path(movie['id'])) do %>
-                                        <img src="http://image.tmdb.org/t/p/w342<%= movie['poster_path'] %>" alt="Image" class="img-responsive">
+                                    <%= link_to(show_path(movie.id)) do %>
+                                        <img src="http://image.tmdb.org/t/p/w342<%= movie.backdrop_path %>" alt="Image" class="img-responsive">
                                         <div class="overlay-img">
                                             <div class="text">
-                                                <h5><%= movie['title'] %></h5>
-                                                <% rating = Review.where(movie_id: movie['id']).where('rating is not null').average(:rating)%>
-                                                <% recommendations = Review.where(movie_id: movie['id']).where(recommend: true).count %>
+                                                <h5><%= movie.title %></h5>
+                                                <% rating = Review.where(movie_id: movie.id).where('rating is not null').average(:rating)%>
+                                                <% recommendations = Review.where(movie_id: movie.id).where(recommend: true).count %>
                                                 <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
                                                 <h5>Recommended by: <%= !recommendations.nil? ? recommendations : 'No recommendations yet' %></h5>
                                             </div>
