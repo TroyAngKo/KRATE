@@ -58,60 +58,24 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                            <div class="col-sm-6 daebak">
-                                <center><img src="http://www.koreandrama.org/wp-content/uploads/2014/04/Doctor-Stranger-Poster1.jpg" alt="Image" class="img-responsive daebak-img" style="height: 100px"></a></center>
-                            </div>
-                            <div class="col-sm-6 showtext"><center><br>
-                                Doctor Stranger<br>
-                                Rating<br>
-                                Read Reviews
-                                </center>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="col-sm-6 daebak">
-                                <center><img src="http://www.koreandrama.org/wp-content/uploads/2014/04/Doctor-Stranger-Poster1.jpg" alt="Image" class="img-responsive daebak-img" style="height: 100px"></a></center>
-                            </div>
-                            <div class="col-sm-6 showtext"><center><br>
-                                Doctor Stranger<br>
-                                Rating<br>
-                                Read Reviews
-                                </center>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="col-sm-6 daebak">
-                                <center><img src="http://www.koreandrama.org/wp-content/uploads/2014/04/Doctor-Stranger-Poster1.jpg" alt="Image" class="img-responsive daebak-img" style="height: 100px"></a></center>
-                            </div>
-                            <div class="col-sm-6 showtext"><center><br>
-                                Doctor Stranger<br>
-                                Rating<br>
-                                Read Reviews
-                                </center>
-                            </div>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>
-                            <div class="col-sm-6 daebak">
-                                <center><img src="http://www.koreandrama.org/wp-content/uploads/2014/04/Doctor-Stranger-Poster1.jpg" alt="Image" class="img-responsive daebak-img" style="height: 100px"></a></center>
-                            </div>
-                            <div class="col-sm-6 showtext"><center><br>
-                                Doctor Stranger<br>
-                                Rating<br>
-                                Read Reviews
-                                </center>
-                            </div>
-                        </td>
-                      </tr>
+                        <% @daebak.each do |show| %>
+                            <tr>
+                                <td>
+                                    <div class="col-sm-5 daebak">
+                                        <center><img src="http://image.tmdb.org/t/p/original<%= show.backdrop_path %>"border="0" alt="Image and video hosting by TinyPic" class="img-responsive"/></center>
+                                    </div>
+                                    <div class="col-sm-7 showtext"><center><br>
+                                        <% rating = Review.where(movie_id: show.id).where('rating is not null').average(:rating) %>
+                                        <h5><%= show.title %></h5>
+                                        <h5>Rating: <%= !rating.nil? ? rating.round(2) : 'No ratings yet' %></h5>
+                                        <h5><%= link_to "Read Reviews",show_path(show.id) %></h5>
+                                        </center>
+                                    </div>
+                                </td>
+                            </tr>
+                        <% end %>
                     </tbody>
-                  </table>
+                </table>
             </div>
         
         </div>

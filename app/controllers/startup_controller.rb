@@ -18,6 +18,8 @@ class StartupController < ApplicationController
     # first 12 newest shows
     @new = @movies.order(:release_date).where('backdrop_path != ?', "")[0..11]
 
+    @daebak = Show.all.joins(:reviews).where('reviews.rating is not null').select('shows.*, avg(reviews.rating) as ratings').group('movie_id').order("ratings desc")[0..2]
+
   end
 
   def about_us
